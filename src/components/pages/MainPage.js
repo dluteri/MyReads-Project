@@ -36,7 +36,7 @@ class MainPage extends React.Component {
                 
                         <Shelf name="Currently Reading" books={this.state.books.filter(b => b.shelf === "currentlyReading" )} />
                         <Shelf name="Want to Read" books={this.state.books.filter(b => b.shelf === "wantToRead" )} />
-                        <Shelf name="Already Read" books={this.state.books.filter(b => b.shelf === "read" )} />
+                        <Shelf name="Already Read" books={this.state.books.filter(b => b.shelf === "read"  )} />
                         
                 
                      </div>
