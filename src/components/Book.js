@@ -1,9 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import * as BooksAPI from '../BooksAPI';
 
 class Book extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      book: props.book
+    }
+  }
+
+
   componentDidMount() {
     console.log(this);
+  }
+
+  updateBook(shelf) {
+    BooksAPI.update(this.state.book, shelf)
+    .then(resp => {
+      this.setState(state => {
+        let copy = state.book;
+        copy.shelf = shelf;
+        this.setState({ book: copy });
+      });
+    });
   }
 
     render() {
@@ -14,17 +34,17 @@ class Book extends React.Component {
                 {/*} TODO - add alt tags to images */}
                 <div className="book-cover" style={{ width: 128, height: 185, backgroundImage: `url("${this.props.book.imageLinks && this.props.book.imageLinks.thumbnail || ""}")` }}></div>
                 <div className="book-shelf-changer">
-                  <select>
+                  <select value={this.state.book.shelf || "none"} onChange={(event) => { this.updateBook(event.target.value) }}>
                     <option value="move" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>
-                    <option value="read">Read</option>
+                    <option value="read">Already Read</option>
                     <option value="none">None</option>
                   </select>
                 </div>
               </div>
-              <div className="book-title">{this.props.book.title}</div>
-              <div className="book-authors">{this.props.book.authors.join(', ') || "No Author..."  }</div>
+              <div className="book-title">{this.state.book.title}</div>
+              <div className="book-authors">{this.state.book.authors.join(', ') || "No Author..."  }</div>
             </div>
           </li>
         );
