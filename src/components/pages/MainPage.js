@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import * as BooksAPI from '../../BooksAPI'
 
 import Shelf from '../Shelf';
+import { SSL_OP_COOKIE_EXCHANGE } from 'constants';
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -23,6 +24,15 @@ class MainPage extends React.Component {
         });
     }
 
+    updateBook = (book, shelf) => {
+        BooksAPI.update(book, shelf)
+        .then(resp => {
+          book.shelf = shelf;
+          this.setState(state => ({
+              books: state.books.filter(b => b.id !== book.id).concat([book])
+          }));
+        });
+      };
 
 
     render() {
@@ -34,9 +44,9 @@ class MainPage extends React.Component {
                 <div className="list-books-content">
                     <div>
                 
-                        <Shelf name="Currently Reading" books={this.state.books.filter(b => b.shelf === "currentlyReading" )} />
-                        <Shelf name="Want to Read" books={this.state.books.filter(b => b.shelf === "wantToRead" )} />
-                        <Shelf name="Already Read" books={this.state.books.filter(b => b.shelf === "read"  )} />
+                        <Shelf updateBook= {this.updateBook} name="Currently Reading" books={this.state.books.filter(b => b.shelf === "currentlyReading" )} />
+                        <Shelf updateBook= {this.updateBook} name="Want to Read" books={this.state.books.filter(b => b.shelf === "wantToRead" )} />
+                        <Shelf updateBook= {this.updateBook} name="Already Read" books={this.state.books.filter(b => b.shelf === "read"  )} />
                         
                 
                      </div>
