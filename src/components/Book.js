@@ -28,7 +28,8 @@ class Book extends React.Component {
                 </div>
               </div>
               <div className="book-title">{this.props.book.title}</div>
-              <div className="book-authors">{this.props.book.authors.join(', ') && this.props.book.authors[0]  || "No Author..."  }</div>
+              {/*} TODO - seperate authors with comma... .join(', ') */}
+              <div className="book-authors">{(this.props.book.authors && this.props.book.authors.join(', ')) || "No Author"}</div>
             </div>
           </li>
         );

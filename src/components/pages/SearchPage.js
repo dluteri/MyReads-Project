@@ -34,9 +34,13 @@ submitSearch() {
       return this.setState({ results: [] });
     }
     else {
+
       res.forEach(b => {
         let f = this.state.books.filter(B => B.id === b.id);
-        if(f[0]) { b.shelf = f[0].shelf; }
+        
+        if(f[0]){
+          b.shelf = f[0].shelf;
+        }     
       });
       return this.setState({ results: res });
     }
@@ -66,10 +70,14 @@ updateBook = (book, shelf) => {
               </div>
             </div>
             <div className="search-books-results">
-              <ol className="books-grid"></ol>
+              <ol className="books-grid">
                 {
                   this.state.results.map((book, key) => <Book updateBook={this.updateBook} book={book} key={key} />)
                 }
+                 { 
+                      <div>No search results</div>
+                    }
+              </ol>
             </div>
           </div>
         );
