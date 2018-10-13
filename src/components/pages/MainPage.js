@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import * as BooksAPI from '../../BooksAPI'
-
 import Shelf from '../Shelf';
-import { SSL_OP_COOKIE_EXCHANGE } from 'constants';
+
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -12,9 +11,6 @@ class MainPage extends React.Component {
             books: [] 
         }
     }
-
-
-
 
     componentDidMount() {
         BooksAPI.getAll()
@@ -27,12 +23,12 @@ class MainPage extends React.Component {
     updateBook = (book, shelf) => {
         BooksAPI.update(book, shelf)
         .then(resp => {
-          book.shelf = shelf;
-          this.setState(state => ({
-              books: state.books.filter(b => b.id !== book.id).concat([book])
-          }));
+            book.shelf = shelf;
+            this.setState(state => ({
+            books: state.books.filter(b => b.id !== book.id).concat([book])
+        }));
         });
-      };
+    };
 
 
     render() {
@@ -48,11 +44,10 @@ class MainPage extends React.Component {
                         <Shelf updateBook= {this.updateBook} name="Want to Read" books={this.state.books.filter(b => b.shelf === "wantToRead" )} />
                         <Shelf updateBook= {this.updateBook} name="Already Read" books={this.state.books.filter(b => b.shelf === "read"  )} />
                         
-                
-                     </div>
-              </div>
+                    </div>
+                </div>
             <div className="open-search">
-              <Link to="/search">Add a book</Link>
+                <Link to="/search">Add a book</Link>
             </div>
         </div>
         ); 

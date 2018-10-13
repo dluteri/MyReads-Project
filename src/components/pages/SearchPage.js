@@ -20,10 +20,11 @@ componentDidMount() {
     });
 }
 
+/* checks if search query is empty or undefined*/
 updateQuery = (query) => {
   this.setState({query: query}, this.submitSearch);
 }
-/* checks if search query is empty or undefined*/
+
 
 submitSearch() {
   if(this.state.query === '' || this.state.query === undefined) {
@@ -37,16 +38,14 @@ submitSearch() {
 
       res.forEach(b => {
         let f = this.state.books.filter(B => B.id === b.id);
-        
-        if(f[0]){
-          b.shelf = f[0].shelf;
+          if(f[0]){
+            b.shelf = f[0].shelf;
         }     
       });
       return this.setState({ results: res });
     }
   });
 }
-
 
 updateBook = (book, shelf) => {
   BooksAPI.update(book, shelf)
@@ -57,34 +56,31 @@ updateBook = (book, shelf) => {
     }));
   });
 }
-
-
-    render() {
-        return (
-            <div className="search-books">
-            <div className="search-books-bar">
-              <Link className="close-search" to="/">Close</Link>
-              <div className="search-books-input-wrapper">
-                <input type="text" placeholder="Search by title or author" value={this.state.query}
-                  onChange={(event) => this.updateQuery(event.target.value)} />
-              </div>
-            </div>
-            <div className="search-books-results">
-              <ol className="books-grid">
-                {
-                  this.state.results.map((book, key) => <Book updateBook={this.updateBook} book={book} key={key} />)
-                }
-                 { 
-                      <div>No search results</div>
-                    }
-              </ol>
-            </div>
+  render() {
+    return (
+        <div className="search-books">
+        <div className="search-books-bar">
+          <Link className="close-search" to="/">Close</Link>
+          <div className="search-books-input-wrapper">
+            <input type="text" placeholder="Search by title or author" value={this.state.query}
+              onChange={(event) => this.updateQuery(event.target.value)} />
           </div>
-        );
-    }
+        </div>
+        <div className="search-books-results">
+          <ol className="books-grid">
+            {
+              this.state.results.map((book, key) => <Book updateBook={this.updateBook} book={book} key={key} />)
+            }
+              { //else if no search results - 
+              this.state.results.length === 0 ? <div>No search results</div> : null
+            }
+          </ol>
+        </div>
+      </div>
+    );
+  }
 }
 
 
 
 export default SearchPage;
-
