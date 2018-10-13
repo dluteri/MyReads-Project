@@ -128,9 +128,11 @@ body, .app {
 }
 .book-title {
   margin-top: 10px;
+  font-weight: bold; 
 }
 .book-authors {
-  color: #999;
+  color: #575757;
+  font-style: italic;
 }
 
 .book-top {

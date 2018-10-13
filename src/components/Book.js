@@ -15,11 +15,11 @@ class Book extends React.Component {
             <div className="book-top">
               {/*} TODO - add alt tags to images */}
               <div className="book-cover" style={{ width: 128, height: 185, backgroundImage: `url("${this.props.book.imageLinks && 
-                this.props.book.imageLinks.thumbnail || ""}")` }}>
+                this.props.book.imageLinks.thumbnail || ""}")` }} alt="Book Cover">
                 
                 </div>
               <div className="book-shelf-changer">
-                <select value={this.props.book.shelf || "none"} onChange={(event) => { this.props.updateBook(this.props.book, event.target.value) }}>
+                <select aria-label="listbox" value={this.props.book.shelf || "none"} onChange={(event) => { this.props.updateBook(this.props.book, event.target.value) }}>
                   <option value="move" disabled>Move to...</option>
                   <option value="currentlyReading">Currently Reading</option>
                   <option value="wantToRead">Want to Read</option>
