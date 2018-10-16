@@ -19,7 +19,7 @@ class Book extends React.Component {
                 backgroundImage: `url("${this.props.book.imageLinks && 
                 this.props.book.imageLinks.thumbnail || ""}")` }}>
               </div>
-
+{console.log(this)}
               <div className="book-shelf-changer">
                 <select 
                   aria-label="listbox" 
@@ -33,6 +33,11 @@ class Book extends React.Component {
                     <option value="none">Remove from Reading List</option>
                 </select>
               </div>
+
+              <div
+                className="book-info"
+                onClick = {this.toggleModal}>
+              </div> 
 
             </div>
             <div 
@@ -49,3 +54,4 @@ class Book extends React.Component {
 }
 
 export default Book;
+
