@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Book from './components/book';
 
 /* Idea for informational modal from Jason Michael White
     technical knowledge from Dave Ceddia at https://daveceddia.com/open-modal-in-react/ */

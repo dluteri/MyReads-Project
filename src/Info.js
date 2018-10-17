@@ -24,15 +24,15 @@ render() {
         <div className="info-button">
             <button onClick = {this.toggleModal}>
             
-            </button>
             <Modal
                 show={this.state.isOpen}
                 onClose={this.toggleModal}
                 book={book}>
             </Modal>
+            </button>
 
         </div>
-    );
+    )
 }
 
 

@@ -1,4 +1,5 @@
 import React from 'react';
+//import Modal from './modal';
 
 class Book extends React.Component {
   constructor(props) {
@@ -9,10 +10,10 @@ class Book extends React.Component {
   }
 
   render() {
+    
       return (
           <li>
           <div className="book">
-
             <div className="book-top">
               <div className="book-cover"  alt="Book Cover"
                 style={{ width: 128, height: 185, 
@@ -35,9 +36,11 @@ class Book extends React.Component {
               </div>
 
               <div
+              
                 className="book-info"
                 onClick = {this.toggleModal}>
               </div> 
+{console.log(this)}
 
             </div>
             <div 
