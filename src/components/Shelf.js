@@ -8,6 +8,7 @@ class Shelf extends React.Component {
     //console.log(this);
   }
 
+  {/* creates the bookshelves as components and updates the books in the grid */}
   render() {
       return (
               <div className="bookshelf">

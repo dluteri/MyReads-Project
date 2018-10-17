@@ -20,6 +20,7 @@ class Info extends Component {
 render(); {
     const { book } = this.props;
 
+{/* Creates modal button */}
     return (
         <div className="info-button">
             <button onClick = {this.toggleModal}>
@@ -29,6 +30,7 @@ render(); {
                 onClick={this.toggleModal}
                 book={book}>
             </Modal>
+            
             </button>
 
         </div>

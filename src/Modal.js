@@ -16,11 +16,13 @@ class Modal extends React.Component {
     return  (
         
         <div className = "modal">
+            {/* alternate close model option */}
             <div
                 className="close-button"
                 onClick={() => onClick()}
             >X</div>
             <div>
+            {/* Populates info in synopsis modal*/}
                 <h4><cite>{book.title}</cite></h4>
 
                 <div className="description">

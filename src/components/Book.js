@@ -14,7 +14,7 @@ class Book extends React.Component {
   };
 
   render() {
-    
+    // populates book covers
       return (
           <li>
           <div className="book">
@@ -26,7 +26,7 @@ class Book extends React.Component {
                 "https://via.placeholder.com/128x185?text=No Image"}")`
             }}>
               </div>
-              
+    {/* Assigns a book to a shelf, and on event changes shelves */}          
               <div className="book-shelf-changer">
                 <select 
                   aria-label="listbox" 
@@ -40,7 +40,7 @@ class Book extends React.Component {
                     <option value="none">Remove from Reading List</option>
                 </select>
               </div>
-
+    {/* Toggles info modal */}
               <div
                 className="book-info"
                 onClick = {this.toggleModal}/>
@@ -51,10 +51,9 @@ class Book extends React.Component {
                     book={this.props.book}
                   />
                 )}
-{console.log(this)}
               </div> 
-
             </div>
+    {/* Populates title and author(s) */}
             <div 
               className="book-title">{this.props.book.title} 
             </div>
@@ -62,7 +61,6 @@ class Book extends React.Component {
               className="book-authors">{(this.props.book.authors && this.props.book.authors.join(', ')) || "No Author"}
             </div>
 
-          
         </li>
       );
   }
