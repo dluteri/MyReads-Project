@@ -210,7 +210,7 @@ body, .app {
   border-radius: 5%;
   border-width: 2px;
   height: 75%;
-  left: 50%;
+  left: 0;
   margin: 0 auto;
   max-width: 90%;
   padding: 15px;
