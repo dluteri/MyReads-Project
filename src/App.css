@@ -5,7 +5,7 @@ body {
   line-height: 1.5;
 }
 body, .app {
-  background: white;
+  background: #deeedd;
 }
 
 /* main page */
@@ -197,16 +197,20 @@ body, .app {
 
 .modal {
   border-color: #575757;
-  border-width: 5px;
+  border-style: ridge;
+  background-color:  #9ccb9a;
+  border-radius: 5%;
+  border-width: 2px;
   margin: 0 auto;
-  align-content: space-around; 
+  align-content: center;
   width: 100%;
-  height: 90%;
+  height: 75%;
   max-width: 90%;
   position: fixed;
+  top: 5%;
+  left: 50%;
   left: 0;
   right: 0;
-  background: white;
   padding: 15px;
   z-index: 10;
 }
