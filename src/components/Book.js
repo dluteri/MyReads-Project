@@ -1,13 +1,16 @@
 import React from 'react';
-//import Modal from './modal';
+import Modal from './../Modal';
 
 class Book extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    book: props.book
-    }
-  }
+  state = {
+    book: this.props.book,
+    isOpen: false
+  };
+  toggleModal = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  };
 
   render() {
     
@@ -36,11 +39,17 @@ class Book extends React.Component {
               </div>
 
               <div
-              
                 className="book-info"
-                onClick = {this.toggleModal}>
-              </div> 
+                onClick = {this.toggleModal}/>
+                {this.state.isOpen && (
+                  <Modal  
+                    show={this.state.isOpen}
+                    onClick={this.toggleModal}
+                    book={this.props.book}
+                  />
+                )}
 {console.log(this)}
+              </div> 
 
             </div>
             <div 
@@ -50,7 +59,7 @@ class Book extends React.Component {
               className="book-authors">{(this.props.book.authors && this.props.book.authors.join(', ')) || "No Author"}
             </div>
 
-          </div>
+          
         </li>
       );
   }
