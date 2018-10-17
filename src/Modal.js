@@ -10,25 +10,8 @@ class Modal extends React.Component {
     render() {
     // Render nothing if the "show" prop is false
         
-        const { book, toggleModel } = this.props
+        const { book, toggleModal } = this.props 
     
-/*    return !this.props.show (
-
-        <div className = "modal">
-            <div className = "close-button"
-                onClick = {toggleModel} >
-                X </div>
-        
-            <div>
-                <h4><cite> { book.title } </cite></h4>
-            </div>
-
-            <div className = "synopsis">
-                {book.props.description}
-            </div>
-        </div>
-    );
-    } */
 
     return !this.props.show (
         

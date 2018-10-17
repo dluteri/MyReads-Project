@@ -17,7 +17,7 @@ class Info extends Component {
     }
 }
 
-render() {
+render(); {
     const { book } = this.props;
 
     return (
@@ -26,13 +26,13 @@ render() {
             
             <Modal
                 show={this.state.isOpen}
-                onClose={this.toggleModal}
+                onClick={this.toggleModal}
                 book={book}>
             </Modal>
             </button>
 
         </div>
-    )
+    );
 }
 
 
