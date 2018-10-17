@@ -115,6 +115,7 @@ body, .app {
   flex-wrap: wrap;
 }
 .books-grid li {
+  max-width: 175px;
   padding: 10px 15px;
   text-align: left;
 }
@@ -194,6 +195,9 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+
+/* modal */
 
 .modal {
   border-color: #575757;

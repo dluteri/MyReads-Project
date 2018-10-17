@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from './../Modal';
 
+
 class Book extends React.Component {
   state = {
     book: this.props.book,
@@ -21,9 +22,11 @@ class Book extends React.Component {
               <div className="book-cover"  alt="Book Cover"
                 style={{ width: 128, height: 185, 
                 backgroundImage: `url("${this.props.book.imageLinks && 
-                this.props.book.imageLinks.thumbnail || ""}")` }}>
+                this.props.book.imageLinks.thumbnail ||
+                "https://via.placeholder.com/128x185?text=No Image"}")`
+            }}>
               </div>
-{console.log(this)}
+              
               <div className="book-shelf-changer">
                 <select 
                   aria-label="listbox" 
